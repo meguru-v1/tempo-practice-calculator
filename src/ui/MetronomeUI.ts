@@ -146,12 +146,14 @@ export class MetronomeUI {
             if (this.metronome.isPlaying) {
                 this.metronome.stop();
                 this.playBtn?.classList.remove('playing');
+                if (this.playBtn) this.playBtn.textContent = 'START';
                 if (pendulumArm) {
                     pendulumArm.classList.remove('swinging-left', 'swinging-right');
                 }
             } else {
                 this.metronome.start();
                 this.playBtn?.classList.add('playing');
+                if (this.playBtn) this.playBtn.textContent = 'STOP';
             }
         });
 
@@ -278,6 +280,7 @@ export class MetronomeUI {
         if (this.metronome.isPlaying) {
             this.metronome.stop();
             this.playBtn?.classList.remove('playing');
+            if (this.playBtn) this.playBtn.textContent = 'START';
         }
     }
 }
