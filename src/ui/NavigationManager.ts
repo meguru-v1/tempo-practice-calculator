@@ -24,9 +24,29 @@ export class NavigationManager {
         }
 
         if (this.tabItems) {
+            // Setup initial scroll state based on active tab
+            this.tabItems.forEach(item => {
+                if (item.classList.contains('active')) {
+                    const targetId = item.getAttribute('data-target');
+                    if (targetId === 'metronome-view' || targetId === 'timer-view') {
+                        document.body.style.overflow = 'hidden';
+                        document.body.classList.add('fullscreen-mode');
+                    }
+                }
+            });
+
             this.tabItems.forEach(item => {
                 item.addEventListener('click', () => {
                     const targetId = item.getAttribute('data-target');
+
+                    // Manage scrolling state
+                    if (targetId === 'metronome-view' || targetId === 'timer-view') {
+                        document.body.style.overflow = 'hidden';
+                        document.body.classList.add('fullscreen-mode');
+                    } else {
+                        document.body.style.overflow = '';
+                        document.body.classList.remove('fullscreen-mode');
+                    }
 
                     // Switch View
                     if (this.viewSections) {

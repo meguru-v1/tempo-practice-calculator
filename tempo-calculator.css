@@ -185,14 +185,11 @@ body {
     border-color: var(--color-border-light);
 }
 
-/* Header */
 .header {
     background: rgba(30, 36, 48, 0.7);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--color-border);
-    position: sticky;
-    top: 0;
     z-index: 1000;
     width: 100%;
     padding-top: env(safe-area-inset-top, 0px);
@@ -2739,7 +2736,7 @@ textarea,
 
 .massive-play-btn.playing {
     background: var(--color-text-primary);
-    color: var(--color-bg);
+    color: var(--color-bg-dark);
 }
 
 /* Bottom Sheet Modal */
@@ -2841,4 +2838,29 @@ textarea,
 [data-theme="light"] .icon-btn:active,
 [data-theme="light"] .massive-play-btn:active {
     background: rgba(0, 0, 0, 0.05);
+}
+
+body.fullscreen-mode .header {
+    display: none;
+}
+
+body.fullscreen-mode .app-container {
+    padding-top: env(safe-area-inset-top, 20px);
+}
+
+@media (min-width: 768px) {
+    .massive-bpm {
+        font-size: 16rem;
+        letter-spacing: -6px;
+    }
+
+    .circle-btn {
+        width: 100px;
+        height: 100px;
+        font-size: 3.5rem;
+    }
+
+    .massive-timer-display {
+        font-size: 10rem;
+    }
 }
