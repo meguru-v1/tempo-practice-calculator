@@ -2582,14 +2582,11 @@ textarea,
     align-items: center;
     justify-content: center;
     height: 45%;
-    /* Increased from 25% */
     min-height: 250px;
-    /* Increased from 140px */
     width: 100%;
     position: relative;
-    /* Scale pendulum up */
-    transform: scale(1.6);
-    transform-origin: center center;
+    /* Removed transform: scale(1.6) to prevent CSS box overlap */
+    gap: var(--space-md);
 }
 
 .metronome-main-area {
@@ -2860,9 +2857,86 @@ body.fullscreen-mode .header {
 
 body.fullscreen-mode .app-container {
     padding-top: env(safe-area-inset-top, 20px);
+    padding-bottom: calc(75px + env(safe-area-inset-bottom, 20px));
     height: 100vh;
     height: 100dvh;
     overflow: hidden;
+    box-sizing: border-box;
+}
+
+/* Explicitly scale pendulum and visuals physically to avoid bounds overlap */
+body.fullscreen-mode .pendulum-container {
+    width: 192px;
+    height: 256px;
+    margin: var(--space-md) auto;
+}
+
+body.fullscreen-mode .pendulum-arm {
+    width: 5px;
+    height: 176px;
+    bottom: 32px;
+}
+
+body.fullscreen-mode .pendulum-weight {
+    width: 45px;
+    height: 45px;
+    top: 40px;
+}
+
+body.fullscreen-mode .pendulum-base {
+    width: 32px;
+    height: 32px;
+    bottom: 16px;
+}
+
+body.fullscreen-mode .visual-circle {
+    width: 38px;
+    height: 38px;
+    margin: var(--space-md) 0;
+    margin-bottom: var(--space-xl);
+    /* Add buffer space for the scaled accent animation */
+}
+
+/* Dynamically shrink elements on short screens to ensure the START button always fits */
+@media (max-height: 700px) {
+    body.fullscreen-mode .pendulum-container {
+        width: 144px;
+        height: 192px;
+        margin: var(--space-sm) auto;
+    }
+
+    body.fullscreen-mode .pendulum-arm {
+        width: 4px;
+        height: 132px;
+        bottom: 24px;
+    }
+
+    body.fullscreen-mode .pendulum-weight {
+        width: 34px;
+        height: 34px;
+        top: 30px;
+    }
+
+    body.fullscreen-mode .pendulum-base {
+        width: 24px;
+        height: 24px;
+        bottom: 12px;
+    }
+
+    body.fullscreen-mode .visual-circle {
+        width: 30px;
+        height: 30px;
+        margin-bottom: var(--space-lg);
+    }
+
+    .metronome-visual-area {
+        min-height: 180px;
+    }
+
+    .massive-play-btn {
+        height: 60px;
+        font-size: 1.25rem;
+    }
 }
 
 @media (min-width: 768px) {
