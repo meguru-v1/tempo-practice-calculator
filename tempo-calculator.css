@@ -2580,12 +2580,16 @@ textarea,
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 25%;
-    min-height: 140px;
+    justify-content: center;
+    height: 45%;
+    /* Increased from 25% */
+    min-height: 250px;
+    /* Increased from 140px */
     width: 100%;
     position: relative;
-    /* Move pendulum higher */
-    margin-top: -20px;
+    /* Scale pendulum up */
+    transform: scale(1.6);
+    transform-origin: center center;
 }
 
 .metronome-main-area {
@@ -2608,12 +2612,12 @@ textarea,
 }
 
 .massive-bpm {
-    font-size: clamp(6.5rem, 28vw, 9rem);
+    font-size: clamp(3.5rem, 16vw, 5rem);
     font-weight: 300;
     font-family: var(--font-family-mono);
     color: var(--color-text-primary);
     line-height: 1;
-    letter-spacing: -3px;
+    letter-spacing: -1px;
     margin: 0;
     padding: 0;
     font-variant-numeric: tabular-nums;
@@ -2621,13 +2625,14 @@ textarea,
 }
 
 .circle-btn {
-    width: 60px;
-    height: 60px;
+    width: 45px;
+    /* Reduced from 60px */
+    height: 45px;
     border-radius: 50%;
     border: none;
     background: transparent;
     color: var(--color-text-primary);
-    font-size: 2.2rem;
+    font-size: 1.8rem;
     font-weight: 300;
     display: flex;
     align-items: center;
@@ -2862,14 +2867,18 @@ body.fullscreen-mode .app-container {
 
 @media (min-width: 768px) {
     .massive-bpm {
-        font-size: 16rem;
-        letter-spacing: -6px;
+        font-size: 8rem;
+        /* Reduced from 16rem to emphasize pendulum */
+        letter-spacing: -3px;
     }
 
     .circle-btn {
-        width: 100px;
-        height: 100px;
-        font-size: 3.5rem;
+        width: 60px;
+        /* Reduced from 100px */
+        height: 60px;
+        /* Reduced from 100px */
+        font-size: 2.5rem;
+        /* Reduced from 3.5rem */
     }
 
     .massive-timer-display {
