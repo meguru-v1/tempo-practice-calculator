@@ -10,7 +10,7 @@
 
 ## 🚀 デモ
 
-[GitHub Pagesでデモを見る](https://YOUR_USERNAME.github.io/tempo-practice-calculator/)
+[GitHub Pagesでデモを見る](https://meguru-v1.github.io/tempo-practice-calculator/)
 
 ## ✨ 機能
 
@@ -47,7 +47,7 @@ T_total = N × Σ(k=0 to n) [60 × B × R / (a + s × k)]
 
 1. このリポジトリをクローン
    ```bash
-   git clone https://github.com/YOUR_USERNAME/tempo-practice-calculator.git
+   git clone https://github.com/meguru-v1/tempo-practice-calculator.git
    ```
 
 2. `index.html` をブラウザで開く
